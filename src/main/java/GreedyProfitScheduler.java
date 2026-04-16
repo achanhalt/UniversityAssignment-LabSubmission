@@ -29,7 +29,7 @@ public class GreedyProfitScheduler implements JobSequencingStrategy {
     @Override
     public List<Job> schedule(List<Job> jobs) {
         // 1. Sort jobs based on profit in descending order — O(n log n)
-        jobs.sort((a, b) -> b.profit - a.profit);
+        jobs.sort((a, b) -> Integer.compare(b.profit, a.profit));
 
         // 2. Find max deadline to determine schedule size — O(n)
         int maxDeadline = 0;
